@@ -73,5 +73,15 @@ namespace NetScanner.Forms
             appMenu.Show();
             this.Close();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure that you want exit?", "Confirm",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

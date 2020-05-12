@@ -7,7 +7,5 @@ D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetSc
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.csproj.CoreCompileInputs.cache
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.exe
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.pdb
-D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\bin\Debug\MacAddressVendorLookup.dll
-D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.csproj.CopyComplete
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.Forms.Interfaces.resources
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.Forms.AppMenu.resources
