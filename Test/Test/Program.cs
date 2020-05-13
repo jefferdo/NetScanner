@@ -1,4 +1,5 @@
-﻿using MacAddressVendorLookup;
+﻿using IPRangerClass;
+using MacAddressVendorLookup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,20 @@ namespace Test
         private static void Main(string[] args)
         {
             //var interfaces = new NetInterface();
-            foreach (var interface_ in NetInterface.getInterfaces())
+            /*foreach (var interface_ in NetInterface.getInterfaces())
             {
                 var mac = interface_.macAddress;
                 Console.WriteLine("Interface: " + interface_.name + " Mac: " + mac.ToString() + " IP : " + interface_.ipv4.ToString() + " Subnet: " + interface_.mask.ToString() + " Vendor: " + interface_.vendor);
             }
+            Console.ReadKey();*/
+
+            var ipranger = new IPRanger(IPAddress.Parse("192.168.1.27"), IPAddress.Parse("255.255.255.197"));
+            var iplist = ipranger.getIPRange();
+
+            Console.WriteLine("Network ID: " + iplist[0]);
+            Console.WriteLine("No. Of Host IPs: " + (iplist.Count - 2).ToString());
+            Console.WriteLine("Broadcast ID: " + iplist[iplist.Count - 1]);
+
             Console.ReadKey();
         }
     }
