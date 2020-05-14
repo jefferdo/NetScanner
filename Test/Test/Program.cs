@@ -29,7 +29,7 @@ namespace Test
 
             */
 
-            var hostip = "192.168.1.27";
+            var hostip = "192.168.1.54";
             var mask = "255.255.255.0";
 
             var mask_b = getByteArray(mask.ToString());
@@ -41,7 +41,22 @@ namespace Test
             string brodcastid = String.Join(".", brodcastID_b.Select(x => Convert.ToInt64(x, 2)));
             Console.WriteLine(String.Join(".", brodcastid));
             Console.WriteLine(getSubnetSuffix(mask));
-            Console.WriteLine(noOfHost(mask));
+            var hostCount = noOfHost(mask);
+            Console.WriteLine(hostCount);
+
+            string ip = netid;
+            for (var i = 0; i < hostCount; i++)
+            {
+                ip = getNextIpAddress(ip, 1);
+                if (ip == hostip)
+                {
+                    Console.WriteLine(ip + " <<< ");
+                }
+                else
+                {
+                    Console.WriteLine(ip);
+                }
+            }
 
             Console.ReadKey();
         }
@@ -115,6 +130,14 @@ namespace Test
         internal static int noOfHost(string mask)
         {
             return Convert.ToInt32(Math.Pow(2, getSubnetSuffix("255.255.255.255") - getSubnetSuffix(mask)) - 2);
+        }
+
+        private static string getNextIpAddress(string ipAddress, uint increment)
+        {
+            byte[] addressBytes = IPAddress.Parse(ipAddress).GetAddressBytes().Reverse().ToArray();
+            uint ipAsUint = BitConverter.ToUInt32(addressBytes, 0);
+            var nextAddress = BitConverter.GetBytes(ipAsUint + increment);
+            return String.Join(".", nextAddress.Reverse());
         }
     }
 
