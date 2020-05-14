@@ -1,5 +1,4 @@
-﻿using IPRangerClass;
-using MacAddressVendorLookup;
+﻿using MacAddressVendorLookup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,6 @@ namespace Test
                 var mac = interface_.macAddress;
                 Console.WriteLine("Interface: " + interface_.name + " Mac: " + mac.ToString() + " IP : " + interface_.ipv4.ToString() + " Subnet: " + interface_.mask.ToString() + " Vendor: " + interface_.vendor);
             }
-            Console.ReadKey();*/
 
             var ipranger = new IPRanger(IPAddress.Parse("192.168.1.27"), IPAddress.Parse("255.255.255.197"));
             var iplist = ipranger.getIPRange();
@@ -29,7 +27,94 @@ namespace Test
             Console.WriteLine("No. Of Host IPs: " + (iplist.Count - 2).ToString());
             Console.WriteLine("Broadcast ID: " + iplist[iplist.Count - 1]);
 
+            */
+
+            var hostip = "192.168.1.27";
+            var mask = "255.255.255.0";
+
+            var mask_b = getByteArray(mask.ToString());
+            var netID_b = getNetworkID(hostip, mask);
+            var brodcastID_b = getBrodcastID(hostip, mask);
+
+            string netid = String.Join(".", netID_b.Select(x => Convert.ToInt64(x, 2)));
+            Console.WriteLine(netid);
+            string brodcastid = String.Join(".", brodcastID_b.Select(x => Convert.ToInt64(x, 2)));
+            Console.WriteLine(String.Join(".", brodcastid));
+            Console.WriteLine(getSubnetSuffix(mask));
+            Console.WriteLine(noOfHost(mask));
+
             Console.ReadKey();
+        }
+
+        internal static string[] getByteArray(String ipAddress)
+        {
+            return (ipAddress.Split('.').Select(x => Convert.ToString(Int32.Parse(x), 2).PadLeft(8, '0'))).ToArray();
+        }
+
+        internal static string[] getNetworkID(string ip, string mask)
+        {
+            var hostip_b = getByteArray(ip.ToString());
+            var mask_b = getByteArray(mask.ToString());
+            List<string> netID = new List<string>();
+
+            if (hostip_b.Length == mask_b.Length)
+            {
+                for (var i = 0; i < hostip_b.Length; i++)
+                {
+                    String seg = "";
+                    for (var o = 0; o < hostip_b[i].Length; o++)
+                    {
+                        var nbit = Byte.Parse(hostip_b[i][o].ToString()) & Byte.Parse(mask_b[i][o].ToString());
+                        seg += nbit.ToString();
+                    }
+                    netID.Add(seg);
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Invalid IP address or subnet mask");
+            }
+            return netID.ToArray();
+        }
+
+        internal static string[] getBrodcastID(string hostip, string mask)
+        {
+            var mask_b = getByteArray(mask.ToString());
+            var netID_b = getNetworkID(hostip, mask);
+            List<string> brodcastID = new List<string>();
+
+            for (var i = 0; i < netID_b.Length; i++)
+            {
+                String seg = "";
+                for (var o = 0; o < netID_b[i].Length; o++)
+                {
+                    var nbit = Byte.Parse(netID_b[i][o].ToString()) | Byte.Parse(((mask_b[i][o] == Convert.ToChar("1")) ? "0" : "1").ToString());
+                    seg += nbit.ToString();
+                }
+                brodcastID.Add(seg);
+            }
+
+            return brodcastID.ToArray();
+        }
+
+        internal static int getSubnetSuffix(string mask)
+        {
+            var mask_b = getByteArray(mask.ToString());
+            var suffix = 0;
+            foreach (var digit in String.Join("", mask_b))
+            {
+                if (digit.ToString() == "1")
+                {
+                    suffix++;
+                }
+            }
+
+            return suffix;
+        }
+
+        internal static int noOfHost(string mask)
+        {
+            return Convert.ToInt32(Math.Pow(2, getSubnetSuffix("255.255.255.255") - getSubnetSuffix(mask)) - 2);
         }
     }
 

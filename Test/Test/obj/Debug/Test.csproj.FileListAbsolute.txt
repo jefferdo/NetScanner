@@ -12,3 +12,4 @@ D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\Newtonsoft.Json.x
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\RestSharp.xml
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\IPRangerClass.dll
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\IPRangerClass.pdb
+D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.csprojAssemblyReference.cache
