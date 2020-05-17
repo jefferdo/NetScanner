@@ -1,6 +1,7 @@
 ﻿using NetScanner.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace NetScanner.Forms
@@ -89,6 +90,12 @@ namespace NetScanner.Forms
             {
                 this.Close();
             }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String str = global::NetScanner.Properties.Resources.helpURL;
+            Process.Start(str);
         }
     }
 }

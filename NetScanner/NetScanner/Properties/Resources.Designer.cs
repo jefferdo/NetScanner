@@ -59,5 +59,14 @@ namespace NetScanner.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://www.google.com/.
+        /// </summary>
+        internal static string helpURL {
+            get {
+                return ResourceManager.GetString("helpURL", resourceCulture);
+            }
+        }
     }
 }

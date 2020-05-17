@@ -1,6 +1,7 @@
 ﻿using NetScanner.Service;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace NetScanner.Forms
@@ -108,6 +109,12 @@ namespace NetScanner.Forms
                     toolStripStatusLabel.Text = "Match Not Found";
                 }
             }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String str = global::NetScanner.Properties.Resources.helpURL;
+            Process.Start(str);
         }
     }
 }

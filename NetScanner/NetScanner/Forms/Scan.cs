@@ -179,5 +179,18 @@ namespace NetScanner.Forms
                 MessageBox.Show(this, "Nothing to save. Start scanning process and wait for information to appear", "Nothing to save", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String str = global::NetScanner.Properties.Resources.helpURL;
+            Process.Start(str);
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            this.InitializeComponent();
+            this.Scan_Load(sender, e);
+        }
     }
 }

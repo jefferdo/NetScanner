@@ -33,17 +33,16 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.scanGrid = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_scan = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -89,18 +88,11 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reloadToolStripMenuItem,
             this.goHomeToolStripMenuItem,
             this.exirToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // reloadToolStripMenuItem
-            // 
-            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.reloadToolStripMenuItem.Text = "Reload";
             // 
             // goHomeToolStripMenuItem
             // 
@@ -119,6 +111,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -152,12 +145,6 @@
             this.scanGrid.Size = new System.Drawing.Size(1226, 479);
             this.scanGrid.TabIndex = 0;
             // 
-            // backgroundWorker
-            // 
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel2);
@@ -187,9 +174,9 @@
             // 
             this.btn_scan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_scan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_scan.Location = new System.Drawing.Point(1018, 3);
+            this.btn_scan.Location = new System.Drawing.Point(1019, 3);
             this.btn_scan.Name = "btn_scan";
-            this.btn_scan.Size = new System.Drawing.Size(205, 50);
+            this.btn_scan.Size = new System.Drawing.Size(204, 50);
             this.btn_scan.TabIndex = 0;
             this.btn_scan.Text = "Scan";
             this.btn_scan.UseVisualStyleBackColor = true;
@@ -199,13 +186,19 @@
             // 
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(1018, 59);
+            this.btn_save.Location = new System.Drawing.Point(1019, 59);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(205, 48);
+            this.btn_save.Size = new System.Drawing.Size(204, 48);
             this.btn_save.TabIndex = 1;
             this.btn_save.Text = "Save to snapshot";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
             // Scan
             // 
@@ -238,7 +231,6 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goHomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace NetScanner.Forms
@@ -40,6 +43,12 @@ namespace NetScanner.Forms
             var interfaces = FormManager.Current.CreateForm<History>();
             interfaces.Show();
             this.Close();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String str = global::NetScanner.Properties.Resources.helpURL;
+            Process.Start(str);
         }
     }
 }

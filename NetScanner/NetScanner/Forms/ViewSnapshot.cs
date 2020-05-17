@@ -1,5 +1,6 @@
 ﻿using NetScanner.Service;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace NetScanner.Forms
@@ -37,6 +38,12 @@ namespace NetScanner.Forms
                 var mac_ = new PhysicalAddressProcessor(activeNode.mac);
                 snapshotGrid.Rows.Add(new string[] { activeNode.ip.ToString(), mac_.getMacString(), activeNode.hostname, mac_.getNICVendor() });
             }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String str = global::NetScanner.Properties.Resources.helpURL;
+            Process.Start(str);
         }
     }
 }
