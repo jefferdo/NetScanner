@@ -1,37 +1,22 @@
 Table of Contents {#table-of-contents .TOC-Heading}
 =================
 
-[Aims 2](#aims)
-
-[Description 2](#description)
-
-[Background research 2](#background-research)
-
-[Tool Implementation 3](#tool-implementation)
-
-[Technologies 3](#technologies)
-
-[Class Diagram 4](#class-diagram)
-
-[Screens 5](#screens)
-
-[Main Menu 5](#main-menu)
-
-[Interfaces 5](#interfaces)
-
-[Scan 7](#scan)
-
-[Snapshot history 9](#snapshot-history)
-
-[Challengers 11](#challengers)
-
-[Other Similar tools 12](#other-similar-tools)
-
-[IP Address Tracker 12](#ip-address-tracker)
-
-[Angry IP Scanner (Free) 12](#angry-ip-scanner-free)
-
-[NETDISCOVER 12](#netdiscover)
+-   [Aims](#aims)
+-   [Description](#description)
+-   [Background research](#background-research)
+-   [Tool Implementation](#tool-implementation)
+-   [Technologies](#technologies)
+-   [Class Diagram](#class-diagram)
+-   [Screens](#screens)
+-   [Main Menu](#main-menu)
+-   [Interfaces](#interfaces)
+-   [Scan](#scan)
+-   [Snapshot history](#snapshot-history)
+-   [Challengers](#challengers)
+-   [Other Similar tools](#other-similar-tools)
+-   [IP Address Tracker](#ip-address-tracker)
+-   [Angry IP Scanner (Free)](#angry-ip-scanner-free)
+-   [NETDISCOVER](#netdiscover)
 
 Aims
 ====
