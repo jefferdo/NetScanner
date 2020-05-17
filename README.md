@@ -1,4 +1,4 @@
-Table of Contents {#table-of-contents .TOC-Heading}
+Table of Contents
 =================
 
 -   [Aims](#aims)
