@@ -45,5 +45,10 @@ namespace NetScanner.Forms
             String str = global::NetScanner.Properties.Resources.helpURL;
             Process.Start(str);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

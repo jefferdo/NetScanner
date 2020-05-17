@@ -10,7 +10,6 @@ namespace NetScanner.Service
 {
     public class Storage
     {
-        private IList<activeNode> activeNodes;
         private string filename;
         private const string ext = ".sshot";
         private const string dirPath = @"snapshots";
@@ -123,7 +122,7 @@ namespace NetScanner.Service
             var datetime_ = DateTime.Parse(datetime);
             foreach (var snapshotfile in Snapshotfiles)
             {
-                if(snapshotfile.datetime == datetime_ && snapshotfile.key == key)
+                if (snapshotfile.datetime == datetime_ && snapshotfile.key == key)
                 {
                     snapshotfile_ = snapshotfile;
                 }
