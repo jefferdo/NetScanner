@@ -52,8 +52,8 @@ namespace NetScanner.Service
             createDir();
             Snapshotfiles = new List<Snapshotfile>();
 
-            DirectoryInfo d = new DirectoryInfo(dirPath);//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*" + ext); //Getting Text files
+            DirectoryInfo d = new DirectoryInfo(dirPath);
+            FileInfo[] Files = d.GetFiles("*" + ext); 
             foreach (FileInfo file in Files)
             {
                 Debug.WriteLine(file);
@@ -63,7 +63,8 @@ namespace NetScanner.Service
                     var netid_ = file.Name.Split('_')[1];
                     var mask_ = file.Name.Split('_')[2];
                     var key_ = file.Name.Split('_')[3].Split('.')[0];
-                    var datetime = new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]), Convert.ToInt32(date[3]), Convert.ToInt32(date[4]), Convert.ToInt32(date[5]));
+                    var datetime = new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]),
+                    Convert.ToInt32(date[3]), Convert.ToInt32(date[4]), Convert.ToInt32(date[5]));
                     var filepath = dirPath + @"\" + file.Name;
                     var lines = File.ReadLines(filepath);
 

@@ -87,7 +87,8 @@ namespace NetScanner.Forms
                             mac = mac_o,
                             vendor = vendor_
                         });
-                        scanGrid.Invoke((Action)(() => scanGrid.Rows.Add(new string[] { ip_.ToString(), mac_.ToString(), hostname_, vendor_, "Active" })));
+                        scanGrid.Invoke((Action)(() => scanGrid.Rows.Add(new string[]
+                        { ip_.ToString(), mac_.ToString(), hostname_, vendor_, "Active" })));
                     }
                 }
                 catch (NullReferenceException ex)
@@ -132,10 +133,6 @@ namespace NetScanner.Forms
             toolStripStatusLabel.Text = "Initiating Scan";
             network = new Network(networkID, mask);
             activeNodes = scan(network.getIPRange(), e);
-
-            /*foreach (var activeNode in activeNodes)
-            {
-            }*/
         }
 
         private void btn_scan_Click(object sender, EventArgs e)

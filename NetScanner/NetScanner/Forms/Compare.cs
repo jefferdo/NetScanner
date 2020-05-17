@@ -33,8 +33,8 @@ namespace NetScanner.Forms
 
         private void Compare_Load(object sender, System.EventArgs e)
         {
-            lbl_ss1.Text = compareFile1.datetime + " (Key: " + compareFile1.key + ")";
-            lbl_ss2.Text = compareFile2.datetime + " (Key: " + compareFile2.key + ")";
+            lbl_ss1.Text = compareFile1.datetime + " (ID: " + compareFile1.key + ")";
+            lbl_ss2.Text = compareFile2.datetime + " (ID: " + compareFile2.key + ")";
 
             compareGrid1.ColumnCount = 4;
             compareGrid1.Columns[0].Name = "IP Address";

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NetScanner.Forms.AppMenu">
+    <Position X="9" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAAAACAAAAAAAACwAACCAAAAAAkAAgAhAQAAAAE=</HashCode>
+      <FileName>Forms\AppMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetScanner.Forms.Compare">
+    <Position X="14.25" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BSKiAQAAECAAAAAAAACAABACAEgAAAgAggAAAAAAACE=</HashCode>
+      <FileName>Forms\Compare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetScanner.Forms.History">
+    <Position X="11.75" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BSCAAAAQQCAJAAAAAADACAACAAAAAAgBAkIAAAEABCE=</HashCode>
+      <FileName>Forms\History.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetScanner.Forms.Interfaces">
+    <Position X="6.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AKCAAAAAQCCBBQACAACAAAACAAgAAAgACgAAEQAAAAE=</HashCode>
+      <FileName>Forms\Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetScanner.Forms.Scan">
+    <Position X="3" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BLACAAAYACAEAAIDAACgAICCBAACAAkABoAgQQAEwiM=</HashCode>
+      <FileName>Forms\Scan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetScanner.Forms.ViewSnapshot">
+    <Position X="14.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BSCCAAAAACABgBAAAACAAAACAAgAAAAAAgAAAAAAgCE=</HashCode>
+      <FileName>Forms\ViewSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
