@@ -25,7 +25,7 @@ namespace NetScanner
         }
 
         //I'm using Lazy here, because an exception is thrown if any Forms have been
-        //created before calling Application.SetCompatibleTextRenderingDefault(false)
+        //created before calling Application. SetCompatibleTextRenderingDefault(false)
         //in the Program class
         private static Lazy<FormManager> _current = new Lazy<FormManager>();
 
@@ -41,6 +41,13 @@ namespace NetScanner
         public void RegisterForm(Form frm)
         {
             frm.FormClosed += onFormClosed;
+        }
+
+        internal T CreateForm<T>(string ipv4, string mask) where T : Form, new()
+        {
+            var ret = new T();
+            ret.FormClosed += onFormClosed;
+            return ret;
         }
     }
 }

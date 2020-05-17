@@ -33,15 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NetScanner.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IPRangerClass">
-      <HintPath>..\..\..\IPRangerClass\IPRangerClass\IPRangerClass\bin\Release\IPRangerClass.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=106.11.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.106.11.3\lib\net452\RestSharp.dll</HintPath>
+    <Reference Include="IPRangerClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\IPRangerClass\IPRangerOffline\bin\Release\IPRangerClass.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +56,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormManager.cs" />
+    <Compile Include="Forms\Compare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compare.Designer.cs">
+      <DependentUpon>Compare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Interfaces.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +80,18 @@
     <Compile Include="Forms\AppMenu.Designer.cs">
       <DependentUpon>AppMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Scan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Scan.Designer.cs">
+      <DependentUpon>Scan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewSnapshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewSnapshot.Designer.cs">
+      <DependentUpon>ViewSnapshot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\NetInterface.cs" />
     <Compile Include="Model\Network.cs" />
     <Compile Include="Service\NetScan.cs" />
@@ -77,11 +99,23 @@
     <Compile Include="Service\Storage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Compare.resx">
+      <DependentUpon>Compare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\History.resx">
+      <DependentUpon>History.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Interfaces.resx">
       <DependentUpon>Interfaces.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AppMenu.resx">
       <DependentUpon>AppMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Scan.resx">
+      <DependentUpon>Scan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewSnapshot.resx">
+      <DependentUpon>ViewSnapshot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -93,7 +127,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,10 +141,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
+    <EmbeddedResource Include="Resources\maclist.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="maclist.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

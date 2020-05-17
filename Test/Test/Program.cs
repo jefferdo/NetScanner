@@ -1,10 +1,12 @@
 ﻿using MacAddressVendorLookup;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace Test
@@ -14,47 +16,75 @@ namespace Test
         private static void Main(string[] args)
         {
             //var interfaces = new NetInterface();
-            /*foreach (var interface_ in NetInterface.getInterfaces())
+            /*
+            foreach (var interface_ in NetInterface.getInterfaces())
             {
                 var mac = interface_.macAddress;
                 Console.WriteLine("Interface: " + interface_.name + " Mac: " + mac.ToString() + " IP : " + interface_.ipv4.ToString() + " Subnet: " + interface_.mask.ToString() + " Vendor: " + interface_.vendor);
             }
-
-            var ipranger = new IPRanger(IPAddress.Parse("192.168.1.27"), IPAddress.Parse("255.255.255.197"));
-            var iplist = ipranger.getIPRange();
-
-            Console.WriteLine("Network ID: " + iplist[0]);
-            Console.WriteLine("No. Of Host IPs: " + (iplist.Count - 2).ToString());
-            Console.WriteLine("Broadcast ID: " + iplist[iplist.Count - 1]);
-
             */
+            /*
+            var ip_ranger = new IPRanger(IPAddress.Parse("192.168.1.27"), IPAddress.Parse("255.255.255.0"));
+            var ip_list = ip_ranger.getIPRange();
 
-            var hostip = "192.168.1.54";
+            Console.WriteLine("Network ID: " + ip_list[0]);
+            Console.WriteLine("No. Of Host IPs: " + (ip_list.Count - 2).ToString());
+            Console.WriteLine("Broadcast ID: " + ip_list[ip_list.Count - 1]);
+
+            foreach (var ip in ip_list)
+            {
+                Console.WriteLine(ip);
+            }
+
+            var hostip = "192.168.1.27";
             var mask = "255.255.255.0";
-
+            /*
             var mask_b = getByteArray(mask.ToString());
             var netID_b = getNetworkID(hostip, mask);
             var brodcastID_b = getBrodcastID(hostip, mask);
 
             string netid = String.Join(".", netID_b.Select(x => Convert.ToInt64(x, 2)));
-            Console.WriteLine(netid);
             string brodcastid = String.Join(".", brodcastID_b.Select(x => Convert.ToInt64(x, 2)));
-            Console.WriteLine(String.Join(".", brodcastid));
-            Console.WriteLine(getSubnetSuffix(mask));
             var hostCount = noOfHost(mask);
-            Console.WriteLine(hostCount);
 
             string ip = netid;
             for (var i = 0; i < hostCount; i++)
             {
                 ip = getNextIpAddress(ip, 1);
-                if (ip == hostip)
+                Console.WriteLine(ip);
+            }
+            while (true)
+            {
+                Console.Write("IP Address: ");
+                var ip = IPAddress.Parse(Console.ReadLine());
+                Console.WriteLine(GetMachineNameFromIPAddress(ip));
+            }
+            string filePath = @"D:\Users\jeewa\Music\";
+            DirectoryInfo d = new DirectoryInfo(filePath);//Assuming Test is your Folder
+            FileInfo[] Files = d.GetFiles("*.mp3"); //Getting Text files
+            foreach (FileInfo file in Files)
+            {
+                Console.WriteLine(filePath + file.Name);
+            }
+            */
+
+            string mac = "A0:D3:C1:4B:09:A8";
+
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "Test.Resources.maclist.txt";
+
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                foreach (string result in reader.ReadToEnd().Split('\n'))
                 {
-                    Console.WriteLine(ip + " <<< ");
-                }
-                else
-                {
-                    Console.WriteLine(ip);
+                    var macinfo = result.Split('|');
+                    if (macinfo[0] == mac.Substring(0, 8))
+                    {
+                        Console.WriteLine(macinfo[1]);
+                        break;
+                    }
                 }
             }
 
@@ -138,6 +168,25 @@ namespace Test
             uint ipAsUint = BitConverter.ToUInt32(addressBytes, 0);
             var nextAddress = BitConverter.GetBytes(ipAsUint + increment);
             return String.Join(".", nextAddress.Reverse());
+        }
+
+        private static string GetMachineNameFromIPAddress(IPAddress ipAdress)
+        {
+            string machineName = string.Empty;
+            try
+            {
+                IPHostEntry hostEntry = Dns.GetHostEntry(ipAdress);
+                machineName = hostEntry.HostName;
+            }
+            catch (NullReferenceException ex)
+            {
+                machineName = "n/a";
+            }
+            catch (Exception ex)
+            {
+                machineName = "n/a";
+            }
+            return machineName;
         }
     }
 

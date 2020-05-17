@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Net.NetworkInformation;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace NetScanner.Service
 {
@@ -11,7 +11,7 @@ namespace NetScanner.Service
     {
         private String macAddress;
         private byte[] mac;
-        private PhysicalAddress physicalAddress;
+        public PhysicalAddress physicalAddress { get; private set; }
 
         public PhysicalAddressProcessor(String macaddress)
         {
@@ -27,12 +27,28 @@ namespace NetScanner.Service
 
         public string getNICVendor()
         {
-            var MacAddress = string.Join(":", this.physicalAddress.GetAddressBytes().Select(b => b.ToString("X2")));
+            var MacAddress = string.Join("-", this.physicalAddress.GetAddressBytes().Select(b => b.ToString("X2")));
             try
             {
-                var uri = new Uri("http://api.macvendors.com/" + WebUtility.UrlEncode(MacAddress));
-                using (var wc = new HttpClient())
-                    return wc.GetStringAsync(uri).Result;
+                string mac = MacAddress;
+                string vendor = "n/a";
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourceName = "NetScanner.Resources.maclist.txt";
+
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    foreach (string result in reader.ReadToEnd().Split('\n'))
+                    {
+                        var macinfo = result.Split('|');
+                        if (macinfo[0] == mac.Substring(0, 8))
+                        {
+                            vendor = macinfo[1];
+                            break;
+                        }
+                    }
+                }
+                return vendor;
             }
             catch (Exception)
             {
@@ -42,7 +58,33 @@ namespace NetScanner.Service
 
         public string getMacString()
         {
-            return string.Join(":", this.physicalAddress.GetAddressBytes().Select(b => b.ToString("X2")));
+            try
+            {
+                return string.Join(":", this.physicalAddress.GetAddressBytes().Select(b => b.ToString("X2")));
+            }
+            catch (NullReferenceException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return "n/a";
+            }
+        }
+
+        public static string getMacString(PhysicalAddress physicalAddress)
+        {
+            try
+            {
+                return string.Join(":", physicalAddress.GetAddressBytes().Select(b => b.ToString("X2")));
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return "n/a";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return "n/a";
+            }
         }
     }
 }

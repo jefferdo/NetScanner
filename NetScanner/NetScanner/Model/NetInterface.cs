@@ -1,4 +1,5 @@
-﻿using NetScanner.Service;
+﻿using IPRangerClass;
+using NetScanner.Service;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -10,12 +11,14 @@ namespace NetScanner.Model
         public string macAddress { get; set; }
         public string name { get; set; }
         public string ipv4 { get; set; }
+        public string netv4 { get; set; }
         public string mask { get; set; }
         public string vendor { get; set; }
 
         public IList<NetInterface> getInterfaces()
         {
             var nts = new List<NetInterface>();
+            IPRanger ipr;
             foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
                 if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
@@ -28,11 +31,13 @@ namespace NetScanner.Model
                         if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
                         {
                             var mac = new PhysicalAddressProcessor(interfaceMac);
+                            ipr = new IPRanger(ip.Address, ip.IPv4Mask);
                             nt = new NetInterface()
                             {
                                 name = interfacename,
                                 macAddress = mac.getMacString(),
                                 ipv4 = ip.Address.ToString(),
+                                netv4 = ipr.getIPRange()[0].ToString(),
                                 mask = ip.IPv4Mask.ToString(),
                                 vendor = mac.getNICVendor()
                             };

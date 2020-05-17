@@ -6,10 +6,8 @@ D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.exe
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.pdb
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\MacAddressVendorLookup.dll
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.csproj.CopyComplete
-D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\Newtonsoft.Json.dll
-D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\RestSharp.dll
-D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\Newtonsoft.Json.xml
-D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\RestSharp.xml
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\IPRangerClass.dll
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\bin\Debug\IPRangerClass.pdb
 D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.csprojAssemblyReference.cache
+D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.Properties.Resources.resources
+D:\Users\jeewa\Documents\GitHub\NetScanner\Test\Test\obj\Debug\Test.csproj.GenerateResource.cache

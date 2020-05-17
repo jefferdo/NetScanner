@@ -1,21 +1,31 @@
-﻿using System;
+﻿using IPRangerClass;
+using System;
+using System.Collections.Generic;
 using System.Net;
-using System.Net.NetworkInformation;
 
 namespace NetScanner.Model
 {
     public class Network
     {
-        private IPAddress myipv4;
+        private IPAddress networkID;
         private IPAddress mask;
-        private PhysicalAddress mac;
         private String name;
+        private int hostCount;
 
-        internal struct node
+        private IList<IPAddress> ip_range;
+
+        public Network(IPAddress networkID, IPAddress mask)
         {
-            public PhysicalAddress macAddress;
-            public IPAddress ipv4;
-            public IPAddress mask;
+            this.networkID = networkID;
+            this.mask = mask;
+            var ip_ranger = new IPRanger(networkID, mask);
+            this.ip_range = ip_ranger.getIPRange();
+            this.hostCount = this.ip_range.Count;
+        }
+
+        public IList<IPAddress> getIPRange()
+        {
+            return ip_range;
         }
     }
 }

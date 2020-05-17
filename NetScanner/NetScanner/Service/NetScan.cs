@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
 namespace NetScanner.Service
 {
-    public class NetScan
+    public static class NetScan
     {
-
         public static bool pingHost(string nameOrAddress)
         {
             bool pingable = false;
@@ -35,13 +34,13 @@ namespace NetScanner.Service
             return pingable;
         }
 
-        public string getMacByIp(string ip)
+        public static PhysicalAddress getMacByIp(IPAddress ip)
         {
             var macIpPairs = GetAllMacAddressesAndIppairs();
-            int index = macIpPairs.FindIndex(x => x.IpAddress == ip);
+            int index = macIpPairs.FindIndex(x => x.IpAddress == ip.ToString());
             if (index >= 0)
             {
-                return macIpPairs[index].MacAddress.ToUpper();
+                return PhysicalAddress.Parse(macIpPairs[index].MacAddress.ToUpper());
             }
             else
             {
@@ -49,7 +48,7 @@ namespace NetScanner.Service
             }
         }
 
-        public List<MacIpPair> GetAllMacAddressesAndIppairs()
+        private static List<MacIpPair> GetAllMacAddressesAndIppairs()
         {
             List<MacIpPair> mip = new List<MacIpPair>();
             System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
@@ -72,6 +71,25 @@ namespace NetScanner.Service
             }
 
             return mip;
+        }
+
+        public static string GetMachineNameFromIPAddress(IPAddress ipAdress)
+        {
+            string machineName = string.Empty;
+            try
+            {
+                IPHostEntry hostEntry = Dns.GetHostEntry(ipAdress.ToString());
+                machineName = hostEntry.HostName;
+            }
+            catch (NullReferenceException ex)
+            {
+                machineName = "n/a";
+            }
+            catch (Exception ex)
+            {
+                machineName = "n/a";
+            }
+            return machineName;
         }
 
         public struct MacIpPair
