@@ -81,13 +81,12 @@ With this information we can calculate available host range within the
 connected network. Network ID can be calculated using bitwise AND
 operation between any random IP address and the subnet mask. Example,
 
-![](.//media/image1.png){width="6.268055555555556in" height="1.00625in"}
+![](.//media/image1.png)
 
 To obtain the broadcast address we have to perform bitwise OR opration
 between Network ID and Inversed Subnetmask. Example,
 
-![](.//media/image2.png){width="6.268055555555556in"
-height="1.0166666666666666in"}
+![](.//media/image2.png)
 
 With this information we can obtain the host range of the network.
 
@@ -130,12 +129,11 @@ less.
 Class Diagram
 -------------
 
-![](.//media/image3.png){width="5.48in" height="3.4737609361329835in"}
+![](.//media/image3.png)
 
 Figure 1 - Model Classes
 
-![](.//media/image4.png){width="5.350968941382328in"
-height="4.49563867016623in"}
+![](.//media/image4.png)
 
 Figure 2 - Form Classes
 
@@ -144,8 +142,7 @@ Screens
 
 ### Main Menu
 
-![](.//media/image5.png){width="6.05292760279965in"
-height="3.0837642169728783in"}
+![](.//media/image5.png)
 
 Figure 3 - Main Menu Form (APPMENU)
 
@@ -157,7 +154,7 @@ This is screen presents user with the main finalities. Which is,
 
 ### Interfaces
 
-![](.//media/image6.png){width="6.268055555555556in" height="2.93125in"}
+![](.//media/image6.png)
 
 Figure 4 - Interface Selection
 
@@ -179,19 +176,17 @@ user will be presented with a list of interfaces with this information,
     address manufacture specific portion. I have provided this method
     inside the "PHYSICALADDRESSPROCESSOR CLASS".
 
-![](.//media/image7.png){width="3.0720002187226596in"
-height="2.671527777777778in"}
+![](.//media/image7.png)
 
 Figure 5 - PHYSICALADDRESSPROCESSOR Class
 
-![](.//media/image8.png){width="5.68799978127734in"
-height="3.4158912948381452in"}
+![](.//media/image8.png)
 
 Figure 6 - PhysicalAddressProcessor.getNICVendor
 
 ### Scan
 
-![](.//media/image9.png){width="6.268055555555556in" height="3.49375in"}
+![](.//media/image9.png)
 
 Figure 7 - Scan
 
@@ -206,9 +201,7 @@ User has two buttons to perform specific functions.
 ```
 3.  Save to snapshot -- will be disabled after saving snapshot.
 
-![A screenshot of a computer screen Description automatically
-generated](.//media/image10.png){width="5.363450349956255in"
-height="1.9679997812773404in"}
+![](.//media/image10.png)
 
 Figure 8 - Scan Form Constructor
 
@@ -225,8 +218,7 @@ On form initialisation, caller should provide,
 With this information, on form's on Shown event Scan methods will be
 called on a Background worker class
 
-![](.//media/image11.png){width="5.567361111111111in"
-height="7.448862642169729in"}
+![](.//media/image11.png)
 
 Figure 9 - Scan Form Scan Function
 
@@ -238,16 +230,13 @@ On save button's Click event, it initializes storage object with active
 device on parameters. Storage class is responsible for saving provided
 information in file form in a predefined folder
 
-![A screenshot of a computer screen Description automatically
-generated](.//media/image12.png){width="6.28in"
-height="1.7598097112860893in"}
+![](.//media/image12.png)
 
 Figure 10 - Storage Class (Save)
 
 ### Snapshot history
 
-![](.//media/image13.png){width="6.268055555555556in"
-height="3.6381944444444443in"}
+![](.//media/image13.png)
 
 On this screen, users can view the previously obtained/saved scan
 results. Users can either view the results by double click on a specific
@@ -255,19 +244,15 @@ recode of select 2 results and perform a comparison. Storage class we
 used to save snapshots previously is also responsible for obtaining
 information for this screen as well.
 
-![A screenshot of a cell phone Description automatically
-generated](.//media/image14.png){width="6.095999562554681in"
-height="6.306359361329834in"}
+![](.//media/image14.png)
 
 Figure 11 - Storage Get Files
 
-![](.//media/image15.png){width="6.268055555555556in"
-height="3.4097222222222223in"}
+![](.//media/image15.png)
 
 Figure 12 - View single record
 
-![](.//media/image16.png){width="6.268055555555556in"
-height="3.7131944444444445in"}
+![](.//media/image16.png)
 
 Figure 13 - Compare 2 records
 
