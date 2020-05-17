@@ -39,7 +39,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.historyGrid = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_compare = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -147,7 +147,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.3429F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.6571F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_compare, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 480);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -157,17 +157,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1219, 144);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // button1
+            // btn_compare
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(957, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(259, 66);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Compare";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_compare.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_compare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_compare.Location = new System.Drawing.Point(957, 3);
+            this.btn_compare.Name = "btn_compare";
+            this.btn_compare.Size = new System.Drawing.Size(259, 66);
+            this.btn_compare.TabIndex = 0;
+            this.btn_compare.Text = "Compare";
+            this.btn_compare.UseVisualStyleBackColor = true;
+            this.btn_compare.Click += new System.EventHandler(this.button1_Click);
             // 
             // History
             // 
@@ -206,7 +206,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView historyGrid;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_compare;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }

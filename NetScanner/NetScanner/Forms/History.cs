@@ -47,7 +47,7 @@ namespace NetScanner.Forms
             var snapshotfile_ = store.findFile(datetime, key);
             toolStripStatusLabel.Text = "Please Wait";
             var ssform = new ViewSnapshot(snapshotfile_, this);
-            ssform.Text = "Scan History - Network ID: " + snapshotfile_.netid + " SubnetMask: " + snapshotfile_.mask + " on: " +snapshotfile_.datetime.ToString();
+            ssform.Text = "Scan History - Network ID: " + snapshotfile_.netid + " SubnetMask: " + snapshotfile_.mask + " on: " + snapshotfile_.datetime.ToString();
             ssform.Show();
             this.Hide();
             //MessageBox.Show(this, snapshotfile_.activeNodes.Count.ToString(), key, MessageBoxButtons.OK);
@@ -64,15 +64,19 @@ namespace NetScanner.Forms
         {
             string datetime = "";
             string key = "";
+            string titleString = "";
+            List<Storage.Snapshotfile> compareFiles = new List<Storage.Snapshotfile>();
             foreach (DataGridViewRow row in historyGrid.SelectedRows)
             {
                 datetime = row.Cells[0].Value.ToString();
                 key = row.Cells["key"].Value.ToString();
+                titleString += datetime + " " + key + "|";
+                var snapshotfile_ = store.findFile(datetime, key);
+                compareFiles.Add(snapshotfile_);
             }
-            var snapshotfile_ = store.findFile(datetime, key);
             toolStripStatusLabel.Text = "Please Wait";
-            var compareForm = new Compare(snapshotfile_, this);
-            compareForm.Text = "Scan History - Network ID: " + snapshotfile_.netid + " SubnetMask: " + snapshotfile_.mask + " on: " + snapshotfile_.datetime.ToString();
+            var compareForm = new Compare(compareFiles, this);
+            compareForm.Text = "Compare Snapshots: " + titleString.Split('|')[0] + " vs " + titleString.Split('|')[1];
             compareForm.Show();
             this.Hide();
         }
@@ -85,12 +89,19 @@ namespace NetScanner.Forms
                 for (int i = 2; i < historyGrid.SelectedRows.Count; i++)
                 {
                     historyGrid.SelectedRows[i].Selected = false;
-
                 }
             }
             if (historyGrid.SelectedRows.Count == 1)
             {
                 toolStripStatusLabel.Text = "Ready";
+            }
+            if (historyGrid.SelectedRows.Count == 2)
+            {
+                btn_compare.Enabled = true;
+            }
+            else
+            {
+                btn_compare.Enabled = false;
             }
         }
     }

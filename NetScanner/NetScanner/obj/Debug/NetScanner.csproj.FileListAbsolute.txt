@@ -15,3 +15,4 @@ D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetSc
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.csprojAssemblyReference.cache
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.Forms.History.resources
 D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.Forms.ViewSnapshot.resources
+D:\Users\jeewa\Documents\GitHub\NetScanner\NetScanner\NetScanner\obj\Debug\NetScanner.Forms.Compare.resources
