@@ -76,7 +76,13 @@ namespace NetScanner.Forms
                         if (row2.Cells[1].Value.ToString().Equals(searchValue))
                         {
                             row2.Selected = true;
+                            toolStripStatusLabel.Text = "Match Found";
                             break;
+                        }
+                        else
+                        {
+                            row2.Selected = false;
+                            toolStripStatusLabel.Text = "Match Not Found";
                         }
                     }
                 }
@@ -100,7 +106,12 @@ namespace NetScanner.Forms
                         if (row1.Cells[1].Value.ToString().Equals(searchValue))
                         {
                             row1.Selected = true;
+                            toolStripStatusLabel.Text = "Match Found";
                             break;
+                        } else
+                        {
+                            row1.Selected = false;
+                            toolStripStatusLabel.Text = "Match Not Found";
                         }
                     }
                 }
