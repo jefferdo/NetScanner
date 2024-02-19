@@ -1,6 +1,6 @@
 # NetScanner
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/jefferdo/NetScanner/graphs/commit-activity) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/jefferdo) [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/jefferdo)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/jefferdo/NetScanner/graphs/commit-activity) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/jefferdo) [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/jefferdo)
 
 Table of Contents
 =================
